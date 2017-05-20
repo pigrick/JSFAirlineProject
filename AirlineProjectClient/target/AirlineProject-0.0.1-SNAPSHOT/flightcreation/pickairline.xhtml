@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<title>Pick Airline</title>
+</h:head>
+<h:body>
+	<h1>Pick Airline</h1>
+	<h:form>
+		Airline: 
+		<h:selectOneMenu value="#{flight.airline}">
+    		<f:selectItems value="#{airlineRestClient.getAllAirlines()}" var="line" itemValue="#{line}" itemLabel="#{line.name}"/>
+		</h:selectOneMenu>  
+		<br />
+		Airplane:
+		<h:selectOneMenu value="#{flight.airplane}">
+    		<f:selectItems value="#{airlineRestClient.getAllAirplanes()}" var="plane" itemValue="#{plane}" itemLabel="#{plane.model}"/>
+		</h:selectOneMenu> 
+		<br />				
+		<h:commandButton value="Cancel" action="cancel" immediate="true" />
+		<h:commandButton value="Back" action="back" />
+		<h:commandButton value="Submit" action="#{airlineRestClient.createFlight(flight)}" />
+	</h:form>
+</h:body>
+</html>

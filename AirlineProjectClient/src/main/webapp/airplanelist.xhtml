@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<title>Airplane List</title>
+</h:head>
+<h:body>
+	<h1>List of Airplanes</h1>
+	<h:form><h:commandButton value="Back" action="back" /></h:form>
+	<h:dataTable value="#{airlineRestClient.getAllAirplanes()}" var="planes" border="1">
+		<h:column>
+			<f:facet name="header">Serial NO</f:facet>
+			<h:outputText value="#{planes.serialnr}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model</f:facet>
+			<h:outputText value="#{planes.model}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Capacity</f:facet>
+			<h:outputText value="#{planes.capacity}" />
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>

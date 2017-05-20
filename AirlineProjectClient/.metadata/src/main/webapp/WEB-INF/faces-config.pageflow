@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14946040675240" configfile="/AirlineProject/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="178" id="pf14949700013671" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf14949700013682" inlinks="pf14949700013683" path="index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="orderPizza.xhtml" x="122" y="178" id="pf14949700013694" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14949700013695 pf14949700013683" inlinks="pf14949700013682 pf14949700013695" path="airlinelist.xhtml"/>
+  <links id="pf14949700013682" target="pf14949700013694" source="pf14949700013671" outcome="airline"/>
+  <links id="pf14949700013683" target="pf14949700013671" source="pf14949700013694" outcome="back" redirect="true"/>
+  <links id="pf14949700013695" target="pf14949700013694" source="pf14949700013694" outcome="back" redirect="true">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>

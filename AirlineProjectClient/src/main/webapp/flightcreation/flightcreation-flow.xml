@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+              http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+	<flow-definition id="flightcreation">
+
+		<start-node>flightdetails</start-node>
+
+		<view id="flightdetails">
+			<vdl-document>/flightcreation/flightdetails.xhtml</vdl-document>
+		</view>
+
+
+		<flow-return id="exit">
+			<from-outcome>/index.xhtml</from-outcome>
+		</flow-return>
+
+		<navigation-rule>
+			<from-view-id>/flightcreation/flightdetails.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>next</from-outcome>
+				<to-view-id>/flightcreation/pickairport.xhtml</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>cancel</from-outcome>
+				<to-view-id>exit</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+
+		<navigation-rule>
+			<from-view-id>/flightcreation/pickairport.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>next</from-outcome>
+				<to-view-id>/flightcreation/pickairline.xhtml</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>back</from-outcome>
+				<to-view-id>/flightcreation/flightdetails.xhtml</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>cancel</from-outcome>
+				<to-view-id>exit</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+
+		<navigation-rule>
+			<from-view-id>/flightcreation/pickairline.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>success</from-outcome>
+				<to-view-id>exit</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>cancel</from-outcome>
+				<to-view-id>exit</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>back</from-outcome>
+				<to-view-id>/flightcreation/flightdetails.xhtml</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-outcome>exit</from-outcome>
+				<to-view-id>exit</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+
+	</flow-definition>
+</faces-config>

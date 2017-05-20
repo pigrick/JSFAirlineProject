@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+
+	<title>Airline List</title>
+</h:head>
+<h:body>
+	<h1>List of Airline</h1>
+	<h:form><h:commandButton value="Back" action="back" /></h:form>
+	<h:dataTable value="#{airlineRestClient.getAllAirlines()}" var="lines" border="1">
+		<h:column>
+			<f:facet name="header"><h:outputText value="ID" /></f:facet>
+			<h:outputText value="#{lines.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="Name" /></f:facet>
+			<h:outputText value="#{lines.name}" />
+		</h:column>	
+		<h:column>
+			<f:facet name="header"><h:outputText value="Edit" /></f:facet>
+			<h:form>
+				<h:commandButton value="Edit" action="updateairline">
+					<f:setPropertyActionListener value="#{lines.id}" target="#{airline.id}" />
+					<f:setPropertyActionListener value="#{lines.name}" target="#{airline.name}" />
+				</h:commandButton>
+			</h:form>
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="Remove" /></f:facet>
+			<h:form>
+			<h:commandButton value="Delete" action="#{airlineRestClient.deleteAirline(lines.id)}" />
+			</h:form>
+		</h:column>	
+	</h:dataTable>
+</h:body>
+</html>

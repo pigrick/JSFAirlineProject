@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<title>Flight Details</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h1>Flight Details</h1>
+
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+			Flight Number:
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText value="#{flight.flightnr}" />
+			</h:panelGroup>
+			<h:panelGroup>
+			Departure Date:
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText value="#{flight.departureDate}"/>
+			</h:panelGroup>
+			<h:panelGroup>
+			Departure Time:
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText value="#{flight.departureTime}" />
+			</h:panelGroup>
+			<h:panelGroup>
+			Arrival Date:
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText value="#{flight.arrivalDate}" />
+			</h:panelGroup>
+			<h:panelGroup>
+			Arrival Time:
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:inputText value="#{flight.arrivalTime}" />
+			</h:panelGroup>
+			<h:panelGroup>
+							
+			<h:commandButton value="Cancel" action="cancel" immediate="true" />
+			<h:commandButton value="Next" action="next" />
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
